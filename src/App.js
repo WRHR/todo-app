@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import TodoContaineer from './Components/TodoContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const todosUrl = 'http://localhost:3000/todos'
+class App extends Component {
+
+  state={
+    todos: []
+  }
+
+  componentDidMount(){
+    this.getTodos()
+  }
+  
+  getTodos = () =>{
+    fetch(todosUrl)
+      .then(resp => resp.json())
+      .then(todos => this.setState({todos}))
+  }
+  
+  render(){
+    return (
+      <div className="App">
+        <h1>Todo App</h1>
+        <TodoContaineer todos={this.state.todos} />
+      </div>
+    );
+  }
 }
 
 export default App;
