@@ -1,3 +1,13 @@
+body{
+  background-color: skyblue;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .todo-list{
   display: flex;
   flex-flow: row wrap;
@@ -12,4 +22,24 @@
   box-shadow: 0 20px 20px -10px gray;
   text-align: center;
   border-radius: 1rem;
+  background-color: white;
+  margin-bottom: 5px;
 }
+
+.delete-button{
+  color: white;
+  background-color: darkred;
+}
+
+.todo-form{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+  justify-content: space-evenly;
+  background-color: white;
+  padding: 20px;
+  border-radius: 1rem;
+  margin-bottom: 20px;
+}
+
