@@ -28,7 +28,18 @@ class App extends Component {
     fetch(todosUrl, {
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(newTodo)
+      body: JSON.stringify({todo: newTodo})
+    })
+  }
+
+  updateTodo = (updatedTodo) => {
+    let todos = this.state.todos.map(todo=> todo.id === updatedTodo.id ? updatedTodo : todo)
+    this.setState({ todos })
+
+    fetch(todosUrl+updatedTodo.id, {
+      method:'PATCH',
+      headers:{'Content-type':'application/json'},
+      body: JSON.stringify({todo: updatedTodo})
     })
   }
 
@@ -46,10 +57,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Todo App</h1>
-        <TodoForm addTodo={this.addTodo}/>
+        <TodoForm submitAction={this.addTodo}/>
         <TodoContaineer 
           todos={this.state.todos} 
-          deleteTodo={this.deleteTodo}
+          submitAction={this.deleteTodo}
+          updateTodo={this.updateTodo}
         />
 
       </div>

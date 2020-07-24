@@ -1,5 +1,5 @@
 body{
-  background-color: skyblue;
+  background-color: rgb(86, 207, 255);
 }
 
 .App{
@@ -18,12 +18,13 @@ body{
 
 .todo-item{
   width: 200px;
-  height: 150px;
-  box-shadow: 0 20px 20px -10px gray;
+  height: max-content;
+  box-shadow: 0 20px 20px -10px rgb(1, 158, 206);
   text-align: center;
   border-radius: 1rem;
   background-color: white;
   margin-bottom: 5px;
+  padding: 10px;
 }
 
 .delete-button{
@@ -43,3 +44,12 @@ body{
   margin-bottom: 20px;
 }
 
+.input-group{
+  display: flex;
+  align-items: center;
+}
+
+.edit-button{
+  background-color: darkslateblue;
+  color: white;
+}
