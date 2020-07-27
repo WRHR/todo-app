@@ -53,3 +53,15 @@ body{
   background-color: darkslateblue;
   color: white;
 }
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+  justify-content: space-evenly;
+  background-color: white;
+  padding: 20px;
+  border-radius: 1rem;
+  margin-bottom: 20px;
+}

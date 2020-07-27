@@ -1,0 +1,34 @@
+import React, {useState} from 'react'
+
+export default function SignUpForm(props){
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleChange = ({target}) => {
+        target.name === "username" 
+            ? setUsername(target.value) 
+            : setPassword(target.value) 
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        let user = {
+            username,
+            password
+        }
+        props.signUp(user)
+    }
+
+    const showAlerts = () => props.alerts.map(alert => <p>{alert}</p>)
+    
+    return(
+        <form className='signup-form' onSubmit={handleSubmit}>
+            <label>Username</label>
+            <input name='username' value={username} onChange={handleChange} />
+            <label>Password</label>
+            <input name='password' type='password' value={password} onChange={handleChange}/>
+            <input type='submit' />
+            {props.alerts ? showAlerts() :null}
+        </form>
+    )
+}
